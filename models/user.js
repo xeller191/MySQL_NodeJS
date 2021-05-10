@@ -13,18 +13,23 @@ module.exports = (sequelize, DataTypes) => {
     }
     User.init(
         {
-            name: DataTypes.STRING,
+            name: DataTypes.STRING(200),
             email: {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING(100),
                 unique: true,
                 allowNull: false,
             },
-            password: DataTypes.STRING,
-            created_at: DataTypes.DATE,
+            password: DataTypes.STRING(100),
+            created_at: {
+                type: DataTypes.DATE,
+                defaultValue: DataTypes.NOW,
+            },
         },
         {
             sequelize,
             modelName: 'User',
+            tableName: 'users', //ชื่อตารางในฐานข้อมูล 
+            timestamps: false, //ถ้าไม่ใช่ timestamp ให้ปิดไว้
         }
     )
     return User
