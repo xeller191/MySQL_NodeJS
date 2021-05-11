@@ -29,9 +29,26 @@ exports.index = async (req, res, next) => {
     //     order: [['id', 'desc']], //orderBy
     // })
 
-    // SQL
-    const sql = 'select id,name,email,created_at from users order by id desc'
-    const users = await models.sequelize.query(sql, { type: models.sequelize.QueryTypes.SELECT })
+    // // SQL
+    // const sql = 'select id,name,email,created_at from users order by id desc'
+    // const users = await models.sequelize.query(sql, { type: models.sequelize.QueryTypes.SELECT })
+
+    //join table
+    //คน 1 คนเขียน หลาย Blog
+    const users = await models.User.findAll({
+        attributes: { exclude: ['password'] }, // *ยกเว้น
+        include: [
+            {
+                model: models.Blog,
+                as: 'blogs', //ใช้ 2ที่ คือ controller และ model
+                attributes: ['id', 'title'], //ให้แสดงแค่  'id', 'title'
+            },
+        ],
+        order: [
+            ['id', 'desc'],
+            ['blogs', 'id', 'desc'],  //ของ blogs  เรียง ตาม id แบบ desc  //มีการ join table
+        ], //orderBy
+    })
     res.status(200).json({
         data: users,
     })

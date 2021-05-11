@@ -1,1 +1,2 @@
 createModelMySQL: npx sequelize-cli model:generate --name User --attributes name:string,email:string,password:string,created_at:date
+createModelMySQL: npx sequelize-cli model:generate --name Blog --attributes title:string,user_id:integer

@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            models.User.hasMany(models.Blog, {
+                as: 'blogs', //ใส่ alias
+                foreignKey: 'user_id', //fk ของ blogs table
+                sourceKey: 'id', //primary key(pk) ของตัวมันเอง
+            })
         }
     }
     User.init(
@@ -28,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         {
             sequelize,
             modelName: 'User',
-            tableName: 'users', //ชื่อตารางในฐานข้อมูล 
+            tableName: 'users', //ชื่อตารางในฐานข้อมูล
             timestamps: false, //ถ้าไม่ใช่ timestamp ให้ปิดไว้
         }
     )
