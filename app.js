@@ -8,7 +8,6 @@ const usersRouter = require('./routes/users');
 const blogRouter = require('./routes/blog');
 
 const app = express();
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
