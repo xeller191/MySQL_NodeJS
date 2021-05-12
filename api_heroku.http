@@ -1,0 +1,42 @@
+//GET ALL USER
+GET https://art-nodejs-mysql.herokuapp.com/api/users
+
+###
+
+//GET User BY ID
+GET https://art-nodejs-mysql.herokuapp.com/api/users/1
+
+###
+
+//New user
+POST https://art-nodejs-mysql.herokuapp.com/api/users/
+content-type: application/json
+
+{
+    "name":"Doc",
+    "email":"Doc@gmail.com",
+    "password":"Doc132456"
+}
+
+###
+
+//UPDATE USER by ID
+PUT https://art-nodejs-mysql.herokuapp.com/api/users/6
+content-type: application/json
+
+{
+    "id":"6",
+    "name":"dock222",
+    "email":"dock222@gmail.com2",
+    "password":"doc222k8882"
+}
+
+###
+
+//DELETE USER by ID
+DELETE  https://art-nodejs-mysql.herokuapp.com/api/users/5
+
+###
+
+//GET ALL Blog
+GET  https://art-nodejs-mysql.herokuapp.com/api/blog
