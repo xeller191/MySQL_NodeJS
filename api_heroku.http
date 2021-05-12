@@ -34,7 +34,7 @@ content-type: application/json
 ###
 
 //DELETE USER by ID
-DELETE  https://art-nodejs-mysql.herokuapp.com/api/users/5
+DELETE  https://art-nodejs-mysql.herokuapp.com/api/users/6
 
 ###
 
