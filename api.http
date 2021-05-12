@@ -1,0 +1,42 @@
+//GET ALL USER
+GET http://localhost:4000/api/users
+
+###
+
+//GET User BY ID
+GET http://localhost:4000/api/users/4
+
+###
+
+//New user
+POST http://localhost:4000/api/users/
+content-type: application/json
+
+{
+    "name":"Doc",
+    "email":"Doc@gmail.com",
+    "password":"Doc132456"
+}
+
+###
+
+//UPDATE USER by ID
+PUT http://localhost:4000/api/users/1
+content-type: application/json
+
+{
+    "id":"1",
+    "name":"dock222",
+    "email":"dock222@gmail.com2",
+    "password":"doc222k8882"
+}
+
+###
+
+//DELETE USER by ID
+DELETE  http://localhost:4000/api/users/5
+
+###
+
+//GET ALL Blog
+GET http://localhost:4000/api/blog
